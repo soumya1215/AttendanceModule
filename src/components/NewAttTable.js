@@ -9,7 +9,10 @@ import { Form } from 'react-bootstrap'
 import AbsentTable from './AbsentTable'
 // import { useDispatch } from 'react-redux';
 
-export const NewAttTable = () => {
+export const NewAttTable = (props) => {
+ 
+  console.log("abc"+props.category+"heki/n"+props.name)
+
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
   const history = useHistory();
@@ -78,7 +81,7 @@ export const NewAttTable = () => {
       </table>
 
       <button className='btn btn-primary m-5' >Save</button>
-
+<h1>dgjkdsbfvjkz {props.category} hello dzfgvj{props.name}</h1>
 {/* ################################ */}
 {/*  
 if{!data}{

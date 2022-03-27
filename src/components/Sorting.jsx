@@ -136,14 +136,15 @@ import { Form, Row, Button, FormControl } from "react-bootstrap";
 import { dataCategories, dataProducts, dataOrders } from "./data";
 import { render } from "@testing-library/react";
 import { useHistory } from "react-router-dom";
+import { NewAttTable } from "./NewAttTable";
 const defaultItemCategory = {
-  categoryName: "Select Category ...",
+  categoryName: "Select Branch ...",
 };
 const defaultItemProduct = {
-  productName: "Select Product ...",
+  productName: "Select Semester ...",
 };
 const defaultItemOrder = {
-  orderName: "Select Order ...",
+  orderName: "Select Course ...",
 };
 
 const Sorting = () => {
@@ -187,8 +188,12 @@ const Sorting = () => {
   const order = state.order;
   const hasCategory = category && category !== defaultItemCategory;
   const hasProduct = product && product !== defaultItemProduct;
+  // console.log("fhgfhj"+category.value);
 
   const submitHandler = ()=>{
+     setState(state.category.categoryName);
+     <NewAttTable category={state.category.categoryName}/>
+     console.log("dbvjkdbram"+ state.category.categoryName)
      history.push("./listAttendace")
   }
  
@@ -198,6 +203,8 @@ const Sorting = () => {
       <>
         <div className="container">
           <div class="card col-sm-6 row-sm-6">
+               
+             
             <div class="card-header">Take Attendance</div>
             <div class="card-body">
               <h5 class="card-title">Select Details</h5>
@@ -259,7 +266,8 @@ const Sorting = () => {
                 value={order}
               />
             </div>
-            <div className="mb-4"><button
+            <div className="mb-4">
+              <button
               type="button"
               class="btn btn-primary"
               style={{ width: "120px",marginTop:"10px"  }}
@@ -278,7 +286,6 @@ const Sorting = () => {
         </Button> */}
           </div>
         </div>
-
 
       </>
     );
